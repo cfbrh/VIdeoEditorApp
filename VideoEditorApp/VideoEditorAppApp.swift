@@ -8,10 +8,12 @@
 import SwiftUI
 
 @main
-struct VideoEditorAppApp: App {
+struct VideoEditorSwiftUIApp: App {
+    @StateObject var rootVM = RootViewModel(mainContext: PersistenceController.shared.viewContext)
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView(rootVM: rootVM)
+                .preferredColorScheme(.dark)
         }
     }
 }
